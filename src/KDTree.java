@@ -1,6 +1,8 @@
+import java.util.NoSuchElementException;
+
 public class KDTree<T extends Comparable<? super T>> {
     private int dimensions;
-    private Node<T[]> root;
+    private CustomKDTreeNode<T[]> root;
 
     public KDTree(int dimensions, T[][] nodesList) {
         this.dimensions = dimensions;
@@ -13,17 +15,17 @@ public class KDTree<T extends Comparable<? super T>> {
         }
     }
 
-    public Node<T[]> insert(Node<T[]> root, T[] point) {
+    public CustomKDTreeNode<T[]> insert(CustomKDTreeNode<T[]> root, T[] point) {
         return insertHelper(root, point, 0);
     }
 
-    public Node<T[]> insertHelper(Node<T[]> root, T[] point, int depth) {
-        if (root == null) return new Node(point, 2);
+    public CustomKDTreeNode<T[]> insertHelper(CustomKDTreeNode<T[]> root, T[] point, int depth) {
+        if (root == null) return new CustomKDTreeNode<>(point, 2);
         int cd = depth % dimensions;
         if (point[cd].compareTo(root.getItem()[cd]) < 0)
-            root.neighbours[0] = insertHelper(root.neighbours[0], point, depth + 1);
+            root.neighbours[0] = insertHelper(root.customNeighbours[0], point, depth + 1);
         else
-            root.neighbours[1] = insertHelper(root.neighbours[1], point, depth + 1);
+            root.neighbours[1] = insertHelper(root.customNeighbours[1], point, depth + 1);
         return root;
     }
 
@@ -33,10 +35,11 @@ public class KDTree<T extends Comparable<? super T>> {
                 return false;
         return true;
     }
-    public boolean search (Node<T[]> root, T[] point) {
+    public boolean search (CustomKDTreeNode<T[]> root, T[] point) {
         return searchHelper(root, point, 0);
     }
-    public boolean searchHelper (Node<T[]> root, T[] point, int depth) {
+
+    public boolean searchHelper (CustomKDTreeNode<T[]> root, T[] point, int depth) {
         if (root == null) return false;
         if (areSame(root.getItem(), point))
             return true;
@@ -44,8 +47,16 @@ public class KDTree<T extends Comparable<? super T>> {
         int cd = depth % dimensions;
 
         if (point[cd].compareTo(root.getItem()[cd]) < 0)
-            return searchHelper(root.neighbours[0], point, depth + 1);
+            return searchHelper(root.customNeighbours[0], point, depth + 1);
 
-        return searchHelper(root.neighbours[1], point, depth + 1);
+        return searchHelper(root.customNeighbours[1], point, depth + 1);
+    }
+
+    public CustomKDTreeNode<T> findNearest(CustomKDTreeNode<T> nodeTarget){
+        //TODO
+        if (root==null){
+            throw new NoSuchElementException("KD Tree is empty!");
+        }
+        return null;
     }
 }

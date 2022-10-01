@@ -1,4 +1,5 @@
 public class CustomKDTreeNode<T> extends Node<T>{
+    CustomKDTreeNode<T>[] customNeighbours;
 
     public CustomKDTreeNode(T item) {
         super(item);
