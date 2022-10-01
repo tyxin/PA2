@@ -9,5 +9,6 @@ public class KDTree<T extends Comparable<? super T>>{
 
     private void constructTree(T[] nodesList){
         root = new Node(nodesList[0],2);
+        //TODO: continue on
     }
 }
