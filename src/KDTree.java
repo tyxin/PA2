@@ -1,62 +1,67 @@
+import java.util.Collections;
 import java.util.NoSuchElementException;
-
-public class KDTree<T extends Comparable<? super T>> {
+import java.util.PriorityQueue;
+public class KDTree<T extends Number & Comparable<? super T>> {
     private int dimensions;
     private CustomKDTreeNode<T[]> root;
 
+    private double minDist = Double.MAX_VALUE;
+    private CustomKDTreeNode<T[]> closest;
     public KDTree(int dimensions, T[][] nodesList) {
         this.dimensions = dimensions;
-        constructTree(nodesList);
-    }
-
-    private void constructTree(T[][] nodesList) {
-        for (T[] n : nodesList) {
-            root = insert(root, n);
+        for (T[] p : nodesList) {
+            root = insert(root, p);
         }
     }
+    public CustomKDTreeNode<T[]> getRoot(){return root;}
 
-    public CustomKDTreeNode<T[]> insert(CustomKDTreeNode<T[]> root, T[] point) {
-        return insertHelper(root, point, 0);
+    public CustomKDTreeNode<T[]> insert(CustomKDTreeNode<T[]> parent, T[] point) {
+        return insertHelper(parent, point, 0);
     }
-
-    public CustomKDTreeNode<T[]> insertHelper(CustomKDTreeNode<T[]> root, T[] point, int depth) {
-        if (root == null) return new CustomKDTreeNode<>(point, 2);
+    public CustomKDTreeNode<T[]> insertHelper(CustomKDTreeNode<T[]> parent, T[] point, int depth) {
         int cd = depth % dimensions;
-        if (point[cd].compareTo(root.getItem()[cd]) < 0)
-            root.neighbours[0] = insertHelper(root.customNeighbours[0], point, depth + 1);
+        if (parent == null) return new CustomKDTreeNode<>(point, 2, depth, cd);
+
+        if (point[cd].compareTo(parent.getItem()[cd]) < 0)
+            parent.customNeighbours[0] = insertHelper(parent.customNeighbours[0], point, depth + 1);
         else
-            root.neighbours[1] = insertHelper(root.customNeighbours[1], point, depth + 1);
-        return root;
+            parent.customNeighbours[1] = insertHelper(parent.customNeighbours[1], point, depth + 1);
+        return parent;
     }
 
-    public boolean areSame(T[] point1, T[] point2) {
-        for (int i = 0; i < dimensions; ++i)
-            if (point1[i] != point2[i])
-                return false;
-        return true;
-    }
-    public boolean search (CustomKDTreeNode<T[]> root, T[] point) {
-        return searchHelper(root, point, 0);
-    }
-
-    public boolean searchHelper (CustomKDTreeNode<T[]> root, T[] point, int depth) {
-        if (root == null) return false;
-        if (areSame(root.getItem(), point))
-            return true;
-
-        int cd = depth % dimensions;
-
-        if (point[cd].compareTo(root.getItem()[cd]) < 0)
-            return searchHelper(root.customNeighbours[0], point, depth + 1);
-
-        return searchHelper(root.customNeighbours[1], point, depth + 1);
+    public double getDistanceSquared(T[] point1, T[] point2) {
+        double distance = 0;
+        for (int i = 0; i < dimensions; i++) {
+            double delta = point1[i].doubleValue() - point2[i].doubleValue();
+            distance += (delta * delta);
+        }
+        return distance;
     }
 
-    public CustomKDTreeNode<T> findNearest(CustomKDTreeNode<T> nodeTarget){
-        //TODO
+    public CustomKDTreeNode<T[]> findNearest(T[] target){
         if (root==null){
             throw new NoSuchElementException("KD Tree is empty!");
         }
-        return null;
+        nearest(root, new CustomKDTreeNode<>(target), 0);
+        return closest;
+    }
+
+    private void nearest(CustomKDTreeNode<T[]> node, CustomKDTreeNode<T[]> nodeTarget, int depth) {
+        if(node==null) return;
+        double dist = getDistanceSquared(node.getItem(), nodeTarget.getItem());
+        if (dist < minDist && dist != 0) {
+            minDist = dist;
+            closest = node;
+        }
+        int cd = depth % dimensions;
+        if (nodeTarget.getItem()[cd].compareTo(node.getItem()[cd]) < 0) {
+            nearest(node.customNeighbours[0], nodeTarget, depth + 1);
+            if (nodeTarget.getItem()[cd].doubleValue() + minDist >= node.getItem()[cd].doubleValue())
+                nearest(node.customNeighbours[1], nodeTarget, depth + 1);
+        } else {
+            nearest(node.customNeighbours[1], nodeTarget, depth + 1);
+            if (nodeTarget.getItem()[cd].doubleValue() - minDist <= node.getItem()[cd].doubleValue())
+                nearest(node.customNeighbours[0], nodeTarget, depth + 1);
+        }
     }
 }
