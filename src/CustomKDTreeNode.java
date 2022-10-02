@@ -24,5 +24,4 @@ public class CustomKDTreeNode<T> extends Node<T>{
     public void setDist(double dist) {
         this.dist = dist;
     }
-
 }

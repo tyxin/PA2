@@ -63,7 +63,6 @@ public class KDTree<T extends Number & Comparable<? super T>> {
         }
         nearestNeighbours.add(node);
         if (nearestNeighbours.size() > k) nearestNeighbours.poll();
-
         int cd = depth % dimensions;
         if (nodeTarget.getItem()[cd].compareTo(node.getItem()[cd]) < 0) {
             nearest(node.customNeighbours[0], nodeTarget, depth + 1, k);
