@@ -19,10 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="Addition of relevant datasets (csv format)">
+    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="Update on CustomKDTreeNode.java and KDTree.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CustomKDTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomKDTreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KDTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KDTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FacilityType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FacilityType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664639874710</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update on CustomKDTreeNode.java and KDTree.java">
+      <created>1664640465327</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1664640465327</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -147,17 +155,18 @@
     <MESSAGE value="Addition of fundamental classes" />
     <MESSAGE value="Creation of fundamental classes (Facility.java, CustomKDTreeNode.java)" />
     <MESSAGE value="Addition of relevant datasets (csv format)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Addition of relevant datasets (csv format)" />
+    <MESSAGE value="Update on CustomKDTreeNode.java and KDTree.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update on CustomKDTreeNode.java and KDTree.java" />
   </component>
   <component name="WindowStateProjectService">
     <state x="121" y="0" key="#Project_Structure" timestamp="1664597428114">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="121" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1664597428114" />
-    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1664595389235">
+    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1664721689933">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="446" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1664595389235" />
+    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1664721689933" />
     <state x="421" y="82" key="FileChooserDialogImpl" timestamp="1664597948051">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -166,14 +175,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1664597951000" />
-    <state x="233" y="61" key="Vcs.Push.Dialog.v2" timestamp="1664639876333">
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2" timestamp="1664640467336">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="61" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1664639876333" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1664639865254">
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1664640467336" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1664721305925">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1664639865254" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1664721305925" />
     <state x="91" y="0" key="new project wizard" timestamp="1660529330887">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
