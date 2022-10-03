@@ -21,6 +21,12 @@ public class KDTree<T extends Number & Comparable<? super T>> {
             root = insert(root, nodesList[i], facilities[i]);
         }
     }
+    public KDTree(int dimensions, Facility[] facilities) {
+        this.dimensions = dimensions;
+        for (int i = 0; i < facilities.length; i++) {
+            root = insert(root, (T[]) facilities[i].getCoords(), facilities[i]);
+        }
+    }
     public CustomKDTreeNode<T[]> getRoot(){return root;}
 
     public CustomKDTreeNode<T[]> insert(CustomKDTreeNode<T[]> parent, T[] point, Facility facility) {

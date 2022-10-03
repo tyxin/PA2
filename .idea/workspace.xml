@@ -22,12 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="Update on CustomKDTreeNode.java and Facility.java">
+    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="CustomKDTreeNode now contains a Facility it represents">
+      <change afterPath="$PROJECT_DIR$/src/DataTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CustomKDTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomKDTreeNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FacilityType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FacilityType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/KDTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KDTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KDTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KDTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -85,7 +86,14 @@
       <recent name="C:\Users\Yxin\Documents\NUSH\Year 5\Computing Studies\Semester 2\Java Editor Stuff\PA2\src\resources" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.DataTest">
+    <configuration name="DataTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DataTest" />
+      <module name="PA2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="KDTreeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="KDTreeTest" />
       <module name="PA2" />
@@ -95,6 +103,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DataTest" />
         <item itemvalue="Application.KDTreeTest" />
       </list>
     </recent_temporary>
@@ -171,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664721907123</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="CustomKDTreeNode now contains a Facility it represents">
+      <created>1664817460593</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664817460593</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,7 +209,8 @@
     <MESSAGE value="Addition of relevant datasets (csv format)" />
     <MESSAGE value="Update on CustomKDTreeNode.java and KDTree.java" />
     <MESSAGE value="Update on CustomKDTreeNode.java and Facility.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update on CustomKDTreeNode.java and Facility.java" />
+    <MESSAGE value="CustomKDTreeNode now contains a Facility it represents" />
+    <option name="LAST_COMMIT_MESSAGE" value="CustomKDTreeNode now contains a Facility it represents" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
