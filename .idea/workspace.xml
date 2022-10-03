@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,11 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="Update on CustomKDTreeNode.java and Facility.java">
-      <change afterPath="$PROJECT_DIR$/src/application/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/application/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/application/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/application/placeHolderMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomKDTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomKDTreeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KDTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KDTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KDTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/KDTreeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +46,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -59,17 +73,31 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Yu Xin/javafx-sdk-14/lib/javafx.web.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/JavaFX/javafx-sdk-19/lib/javafx.web.jar" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Yxin\Documents\NUSH\Year 5\Computing Studies\Semester 2\Java Editor Stuff\PA2\src\resources" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="KDTreeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="KDTreeTest" />
+      <module name="PA2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.KDTreeTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -156,7 +184,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Setup" />
@@ -168,34 +195,8 @@
     <MESSAGE value="Update on CustomKDTreeNode.java and Facility.java" />
     <option name="LAST_COMMIT_MESSAGE" value="Update on CustomKDTreeNode.java and Facility.java" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="121" y="0" key="#Project_Structure" timestamp="1664597428114">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="121" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1664597428114" />
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser" timestamp="1664722134616">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="446" y="49" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1664722134616" />
-    <state x="421" y="82" key="FileChooserDialogImpl" timestamp="1664722075895">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="421" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1664722075895" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1664722079392">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1664722079392" />
-    <state x="233" y="61" key="Vcs.Push.Dialog.v2" timestamp="1664721909928">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="233" y="61" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1664721909928" />
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1664721305925">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1664721305925" />
-    <state x="91" y="0" key="new project wizard" timestamp="1660529330887">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="91" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1660529330887" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

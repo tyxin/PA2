@@ -28,4 +28,14 @@ public class Facility {
 
     public int getFacilityQuality() { return facilityQuality; }
 
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "x_coord=" + x_coord +
+                ", y_coord=" + y_coord +
+                ", facilityType=" + facilityType +
+                ", rank=" + rank +
+                ", facilityQuality=" + facilityQuality +
+                '}';
+    }
 }

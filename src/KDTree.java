@@ -15,25 +15,25 @@ public class KDTree<T extends Number & Comparable<? super T>> {
             return 0;
         }
     });
-    public KDTree(int dimensions, T[][] nodesList) {
+    public KDTree(int dimensions, T[][] nodesList, Facility[] facilities) {
         this.dimensions = dimensions;
-        for (T[] p : nodesList) {
-            root = insert(root, p);
+        for (int i = 0; i < nodesList.length; i++) {
+            root = insert(root, nodesList[i], facilities[i]);
         }
     }
     public CustomKDTreeNode<T[]> getRoot(){return root;}
 
-    public CustomKDTreeNode<T[]> insert(CustomKDTreeNode<T[]> parent, T[] point) {
-        return insertHelper(parent, point, 0);
+    public CustomKDTreeNode<T[]> insert(CustomKDTreeNode<T[]> parent, T[] point, Facility facility) {
+        return insertHelper(parent, point, facility, 0);
     }
-    public CustomKDTreeNode<T[]> insertHelper(CustomKDTreeNode<T[]> parent, T[] point, int depth) {
+    public CustomKDTreeNode<T[]> insertHelper(CustomKDTreeNode<T[]> parent, T[] point, Facility facility, int depth) {
         int cd = depth % dimensions;
-        if (parent == null) return new CustomKDTreeNode<>(point, 2);
+        if (parent == null) return new CustomKDTreeNode<>(point, 2, facility);
 
         if (point[cd].compareTo(parent.getItem()[cd]) < 0)
-            parent.customNeighbours[0] = insertHelper(parent.customNeighbours[0], point, depth + 1);
+            parent.setCustomNeighbour(0, insertHelper(parent.customNeighbours[0], point, facility, depth + 1));
         else
-            parent.customNeighbours[1] = insertHelper(parent.customNeighbours[1], point, depth + 1);
+            parent.setCustomNeighbour(1, insertHelper(parent.customNeighbours[1], point, facility, depth + 1));
         return parent;
     }
 
