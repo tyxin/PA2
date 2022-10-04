@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="650.0" prefWidth="1200.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <VBox prefHeight="650.0" prefWidth="1200.0">
          <children>
@@ -54,7 +54,7 @@
                      <children>
                         <Label text="Possible Integrated Hubs:">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="10.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
@@ -85,7 +85,7 @@
                      <children>
                         <Label text="Facility Type:">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="10.0" top="2.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
@@ -93,7 +93,7 @@
                         </Label>
                         <TextField fx:id="facilityTypeLbl" prefHeight="31.0" prefWidth="131.0">
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets left="5.0" />
                            </HBox.margin>
                            <font>
                               <Font size="15.0" />
@@ -101,7 +101,7 @@
                         </TextField>
                         <Label text="Directory: ">
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets left="10.0" top="2.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
@@ -109,13 +109,13 @@
                         </Label>
                         <TextField fx:id="facilityDirectoryLbl" editable="false" prefHeight="25.0" prefWidth="185.0">
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets left="5.0" />
                            </HBox.margin>
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <Button mnemonicParsing="false" onAction="#chooseFileFacility" prefHeight="25.0" prefWidth="94.0" text="Choose File">
+                        <Button mnemonicParsing="false" onAction="#chooseFileFacility" prefHeight="30.0" prefWidth="92.0" text="Choose File">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -125,27 +125,34 @@
                         </Button>
                         <Label text="Rank: ">
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets left="5.0" top="2.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="rankFacilityLbl" prefHeight="25.0" prefWidth="55.0">
+                        <TextField fx:id="rankFacilityLbl" prefHeight="31.0" prefWidth="35.0">
                            <font>
                               <Font size="15.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets left="5.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" onAction="#addEditFacility" prefHeight="25.0" prefWidth="94.0" text="Add/Edit">
+                        <Button mnemonicParsing="false" onAction="#addFacility" prefHeight="30.0" prefWidth="46.0" text="Add">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
-                           <font>
-                              <Font size="14.0" />
-                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#editFacility" prefHeight="30.0" prefWidth="42.0" text="Edit">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#deleteFacility" prefHeight="30.0" prefWidth="51.0" text="Delete">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
                         </Button>
                      </children>
                      <GridPane.margin>
@@ -156,7 +163,7 @@
                      <children>
                         <Label text="Estate Locations: ">
                            <HBox.margin>
-                              <Insets left="20.0" />
+                              <Insets left="10.0" />
                            </HBox.margin>
                            <font>
                               <Font size="16.0" />
@@ -190,7 +197,7 @@
                   </ImageView>
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="645.0" text="Find Optimal Integrated Hubs!">
+                        <Button mnemonicParsing="false" onAction="#findOptimalITHButton" prefHeight="44.0" prefWidth="645.0" text="Find Optimal Integrated Hubs!">
                            <font>
                               <Font size="20.0" />
                            </font>

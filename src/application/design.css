@@ -1,0 +1,19 @@
+.hpBackground{
+    -fx-background-color: #fffffc;
+}
+
+.button{
+    -fx-background-color: #adf8ff;
+}
+
+.button:pressed{
+    -fx-background-color: #aaff99;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.button:hover{
+    -fx-background-color: #aaff99;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
