@@ -21,6 +21,21 @@ public class Location {
         return Math.sqrt(Math.pow(Math.abs(x_coord_2-x_coord),2)+Math.pow(Math.abs(y_coord_2-y_coord),2));
     }
 
+
+    public double getConnectivity(ArrayList<Facility> list){
+        
+        double points = 0.0;
+
+        for (int i=0;i<list.size();i++){
+            Facility facility = list.get(i);
+            points+=facility.getFacilityQuality()/getDistanceTo(facility.getX_coord(), facility.getY_coord());
+        }
+        
+        points/=(double)list.size();
+        
+        return points;
+
+    }
     public double getX_coord() { return x_coord; }
 
     public double getY_coord() { return y_coord; }
@@ -37,4 +52,6 @@ public class Location {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+
 }
