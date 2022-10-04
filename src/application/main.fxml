@@ -1,20 +1,221 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <VBox prefHeight="46.0" prefWidth="600.0">
+      <VBox prefHeight="650.0" prefWidth="1200.0">
          <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="605.0" text="Discovering Integrated Hubs">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="1200.0" text="Discovering Integrated Hubs">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
+            <GridPane prefHeight="605.0" prefWidth="1200.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="892.0" minWidth="10.0" prefWidth="877.9999593098959" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="590.6666259765625" minWidth="10.0" prefWidth="322.66670735677087" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="315.33335367838544" minHeight="10.0" prefHeight="309.99997965494794" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="223.99997965494794" minHeight="10.0" prefHeight="70.66668701171875" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="223.99997965494794" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="124.66671752929688" minHeight="10.0" prefHeight="62.333353678385436" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="124.66671752929688" minHeight="10.0" prefHeight="93.66664632161456" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+               <children>
+                  <TableView fx:id="facilityTableView" prefHeight="193.0" prefWidth="794.0">
+                    <columns>
+                      <TableColumn prefWidth="255.3333181142807" text="Facility Type" />
+                      <TableColumn minWidth="0.0" prefWidth="470.0000305175781" text="Directory" />
+                        <TableColumn minWidth="0.0" prefWidth="149.3333740234375" text="Rank" />
+                    </columns>
+                     <GridPane.margin>
+                        <Insets left="5.0" />
+                     </GridPane.margin>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label text="Possible Integrated Hubs:">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ITHTextField" editable="false" prefHeight="31.0" prefWidth="463.0">
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#chooseFileITH" prefHeight="25.0" prefWidth="147.0" text="Choose File">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label text="Facility Type:">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="facilityTypeLbl" prefHeight="31.0" prefWidth="131.0">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label text="Directory: ">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="facilityDirectoryLbl" editable="false" prefHeight="25.0" prefWidth="185.0">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#chooseFileFacility" prefHeight="25.0" prefWidth="94.0" text="Choose File">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label text="Rank: ">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="rankFacilityLbl" prefHeight="25.0" prefWidth="55.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#addEditFacility" prefHeight="25.0" prefWidth="94.0" text="Add/Edit">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label text="Estate Locations: ">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="estateTextField" editable="false" prefHeight="31.0" prefWidth="463.0">
+                           <HBox.margin>
+                              <Insets left="84.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#chooseEstateLocations" prefHeight="25.0" prefWidth="147.0" text="Choose File">
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <ImageView fx:id="imageView" fitHeight="304.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets top="20.0" />
+                     </GridPane.margin>
+                  </ImageView>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="645.0" text="Find Optimal Integrated Hubs!">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </HBox>
+                  <TableView fx:id="resultTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="3">
+                    <columns>
+                        <TableColumn prefWidth="44.000001311302185" text="Rank" />
+                      <TableColumn prefWidth="118.66675186157227" text="Integrated Hub" />
+                      <TableColumn minWidth="2.0" prefWidth="59.3333740234375" text="Latitude" />
+                        <TableColumn minWidth="6.0" prefWidth="100.0" text="Longtitude" />
+                    </columns>
+                     <GridPane.margin>
+                        <Insets bottom="5.0" right="5.0" />
+                     </GridPane.margin>
+                  </TableView>
+               </children>
+            </GridPane>
          </children>
       </VBox>
    </children>

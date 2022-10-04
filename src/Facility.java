@@ -3,16 +3,15 @@ public class Facility {
     private double x_coord;
     private double y_coord;
     private String name;
-    private FacilityType facilityType;
+    private String facilityType;
     private int rank;
     private int facilityQuality;
 
-    private final String[] facilTypes = {"HOUSING", "MRT", "HEALTHCARE", "SCHOOL"};
 
     public Facility(double x_coord, double y_coord, String facilityType, int rank, int facilityQuality){
         this.x_coord = x_coord;
         this.y_coord = y_coord;
-        this.facilityType = FacilityType.valueOf(facilityType);
+        this.facilityType = facilityType;
         this.rank = rank;
         this.facilityQuality = facilityQuality;
     }
@@ -22,7 +21,7 @@ public class Facility {
         this.name = tokens[0];
         this.y_coord = Double.parseDouble(tokens[1]);
         this.x_coord = Double.parseDouble(tokens[2]);
-        this.facilityType = FacilityType.valueOf(facilTypes[Integer.parseInt(tokens[3])]);
+        this.facilityType = tokens[3];
     }
 
     public double getDistanceTo(double x_coord_2, double y_coord_2){
@@ -33,7 +32,7 @@ public class Facility {
 
     public double getY_coord() { return y_coord; }
 
-    public FacilityType getFacilityType() { return facilityType; }
+    public String getFacilityType() { return facilityType; }
 
     public int getRank() { return rank; }
 
