@@ -12,13 +12,20 @@ public class Model {
         FileChooser jfc = new FileChooser();
         jfc.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
         File selectedFile = jfc.showOpenDialog(null);
-        String filePath = selectedFile.getPath();
-        return filePath;
+        return selectedFile.getPath();
 
     }
 
     public boolean checkValidFacility(String facilityType, String facilityFilePath, String facilityRank){
-        return false;
+        //no commas allowed
+        String regex = "^[^,]+$";
+        boolean validType = facilityType.matches(regex);
+        try{
+            int rank = Integer.parseInt(facilityRank);
+        }catch(NumberFormatException e){
+            return false;
+        }
+        return validType;
     }
 }
 
