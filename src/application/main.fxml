@@ -42,9 +42,9 @@
                <children>
                   <TableView fx:id="facilityTableView" prefHeight="193.0" prefWidth="794.0">
                     <columns>
-                      <TableColumn prefWidth="255.3333181142807" text="Facility Type" />
-                      <TableColumn minWidth="0.0" prefWidth="470.0000305175781" text="Directory" />
-                        <TableColumn minWidth="0.0" prefWidth="149.3333740234375" text="Rank" />
+                      <TableColumn fx:id="facilityTypeCol" prefWidth="255.3333181142807" text="Facility Type" />
+                      <TableColumn fx:id="facilityDirectoryCol" minWidth="0.0" prefWidth="470.0000305175781" text="Directory" />
+                        <TableColumn fx:id="facilityRankCol" minWidth="0.0" prefWidth="149.3333740234375" text="Rank" />
                     </columns>
                      <GridPane.margin>
                         <Insets left="5.0" />
@@ -91,7 +91,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="facilityTypeLbl" prefHeight="31.0" prefWidth="131.0">
+                        <TextField fx:id="facilityTypeTextField" prefHeight="31.0" prefWidth="131.0">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
@@ -107,7 +107,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="facilityDirectoryLbl" editable="false" prefHeight="25.0" prefWidth="185.0">
+                        <TextField fx:id="facilityDirectoryTextField" editable="false" prefHeight="25.0" prefWidth="185.0">
                            <HBox.margin>
                               <Insets left="5.0" />
                            </HBox.margin>
@@ -131,7 +131,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="rankFacilityLbl" prefHeight="31.0" prefWidth="35.0">
+                        <TextField fx:id="rankFacilityTextField" prefHeight="31.0" prefWidth="35.0">
                            <font>
                               <Font size="15.0" />
                            </font>

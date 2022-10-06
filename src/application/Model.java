@@ -1,5 +1,6 @@
 package application;
 
+import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -12,7 +13,16 @@ public class Model {
         FileChooser jfc = new FileChooser();
         jfc.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
         File selectedFile = jfc.showOpenDialog(null);
-        return selectedFile.getPath();
+        if (selectedFile==null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No file selected!");
+            alert.setContentText("Please select a file to add");
+            alert.showAndWait();
+            return null;
+        }else{
+            return selectedFile.getPath();
+        }
 
     }
 

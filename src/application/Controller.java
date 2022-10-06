@@ -6,8 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -15,6 +17,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
+    @FXML
+    private TableColumn facilityTypeCol;
+
+    @FXML
+    private TableColumn facilityDirectoryCol;
+
+    @FXML
+    private TableColumn facilityRankCol;
 
     @FXML
     private AnchorPane anchorPane;
@@ -26,13 +37,13 @@ public class Controller implements Initializable {
     private TextField ITHTextField;
 
     @FXML
-    private TextField facilityTypeLbl;
+    private TextField facilityTypeTextField;
 
     @FXML
-    private TextField facilityDirectoryLbl;
+    private TextField facilityDirectoryTextField;
 
     @FXML
-    private TextField rankFacilityLbl;
+    private TextField rankFacilityTextField;
 
     @FXML
     private TextField estateTextField;
@@ -45,15 +56,21 @@ public class Controller implements Initializable {
 
     private Model model;
 
+    final ObservableList<FacilityTable> data = FXCollections.observableArrayList();
+
     public void chooseFileITH(ActionEvent actionEvent) {
+        String filePath = model.RetrieveFacilityResouceFile();
+        ITHTextField.setText(filePath);
     }
 
     public void chooseFileFacility(ActionEvent actionEvent) {
         String filePath = model.RetrieveFacilityResouceFile();
-        facilityDirectoryLbl.setText(filePath);
+        facilityDirectoryTextField.setText(filePath);
     }
 
     public void chooseEstateLocations(ActionEvent actionEvent) {
+        String filePath = model.RetrieveFacilityResouceFile();
+        estateTextField.setText(filePath);
     }
 
     public void findOptimalITHButton(ActionEvent actionEvent) {
@@ -62,22 +79,49 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         model = new Model();
+        facilityTypeCol.setCellValueFactory(new PropertyValueFactory<FacilityTable, String>("facilityTypeString"));
+        facilityDirectoryCol.setCellValueFactory(new PropertyValueFactory<FacilityTable, String>("facilityPathString"));
+        facilityRankCol.setCellValueFactory(new PropertyValueFactory<FacilityTable, String>("facilityRankString"));
+        facilityTableView.setItems(data);
+
+        facilityTableView.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) ->{
+            if (newSelection!=null){
+                int selectedIndex = facilityTableView.getSelectionModel().getSelectedIndex();
+                facilityTypeTextField.setText(data.get(selectedIndex).getFacilityTypeString());
+                facilityDirectoryTextField.setText(data.get(selectedIndex).getFacilityPathString());
+                rankFacilityTextField.setText(data.get(selectedIndex).getFacilityRankString());
+
+            }
+        });
     }
 
     public void addFacility(ActionEvent actionEvent) {
         //depends on if table selected
-        String facilityType = facilityTypeLbl.getText();
-        String facilityFilePath = facilityDirectoryLbl.getText();
-        String facilityRank = rankFacilityLbl.getText();
+        String facilityType = facilityTypeTextField.getText();
+        String facilityFilePath = facilityDirectoryTextField.getText();
+        String facilityRank = rankFacilityTextField.getText();
         //to insert in between
-        facilityTableView.getSelectionModel().clearSelection();
+        if (!model.checkValidFacility(facilityType,facilityFilePath,facilityRank)){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Fields are invalid!");
+            alert.setContentText("Please fill in required fields with valid input for successful edit");
+            alert.showAndWait();
+        }else{
+            data.add(new FacilityTable(facilityType,facilityFilePath,facilityRank));
+            facilityTypeTextField.clear();
+            facilityDirectoryTextField.clear();
+            rankFacilityTextField.clear();
+            facilityTableView.setItems(data);
+            facilityTableView.getSelectionModel().clearSelection();
+        }
 
     }
 
     public void editFacility(ActionEvent actionEvent) {
-        String facilityType = facilityTypeLbl.getText();
-        String facilityFilePath = facilityDirectoryLbl.getText();
-        String facilityRank = rankFacilityLbl.getText();
+        String facilityType = facilityTypeTextField.getText();
+        String facilityFilePath = facilityDirectoryTextField.getText();
+        String facilityRank = rankFacilityTextField.getText();
         //TODO: refer to Y3 OOP II Lab 5.2
 
         int editIndex = facilityTableView.getSelectionModel().getSelectedIndex();
@@ -91,20 +135,33 @@ public class Controller implements Initializable {
             if (!model.checkValidFacility(facilityType,facilityFilePath,facilityRank)){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning");
-                alert.setHeaderText("Fields are empty!");
-                alert.setContentText("Please fill in required fields for successful edit");
+                alert.setHeaderText("Fields are invalid!");
+                alert.setContentText("Please fill in required fields with valid inputs for successful edit");
                 alert.showAndWait();
             }else{
-//                data.remove(editIndex);
-//                data.add(editIndex,new Person(firstNameTF.getText(),lastNameTF.getText(),emailTF.getText()));
-//                firstNameTF.clear();
-//                lastNameTF.clear();
-//                tableView.setItems(data);
+                data.remove(editIndex);
+                data.add(editIndex,new FacilityTable(facilityType,facilityFilePath,facilityRank));
+                facilityTypeTextField.clear();
+                facilityDirectoryTextField.clear();
+                rankFacilityTextField.clear();
+                facilityTableView.setItems(data);
             }
         }
         facilityTableView.getSelectionModel().clearSelection();
     }
 
     public void deleteFacility(ActionEvent actionEvent) {
+        int deleteIndex = facilityTableView.getSelectionModel().getSelectedIndex();
+        if (deleteIndex==-1){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No row selected!");
+            alert.setContentText("Please select a row before you attempt to delete");
+            alert.showAndWait();
+        }else{
+            data.remove(deleteIndex);
+            facilityTableView.setItems(data);
+        }
+        facilityTableView.getSelectionModel().clearSelection();
     }
 }
