@@ -7,6 +7,10 @@ public class HubLocation {
     private double y_coord;
     private String name;
 
+    public HubLocation(String string) {
+        this.name = string;
+    }
+
     private double improvement;
 
     public double getDistanceTo(double x_coord_2, double y_coord_2){

@@ -22,22 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="CustomKDTreeNode now contains a Facility it represents">
+    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="move classes in default package into Model package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddQuality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AddQuality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConnectivityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ConnectivityFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CustomKDTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CustomKDTreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/DataTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Facility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HubLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/HubLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KDTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/KDTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KDTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/KDTreeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ConnectivityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ConnectivityFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/HubLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/HubLocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665221001501</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="move classes in default package into Model package">
+      <created>1665344306827</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1665344306827</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,7 +297,8 @@
     <MESSAGE value="Update csv files and JavaFX Application" />
     <MESSAGE value="Update on JavaFX Application" />
     <MESSAGE value="Add updated facilities data" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add updated facilities data" />
+    <MESSAGE value="move classes in default package into Model package" />
+    <option name="LAST_COMMIT_MESSAGE" value="move classes in default package into Model package" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

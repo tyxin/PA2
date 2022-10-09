@@ -69,7 +69,9 @@ public class ConnectivityFinder {
         possibleHub.setImprovement(nearestEstates);
     }
 
-    public ArrayList<HubLocation> sortHubLocations(ArrayList<HubLocation> locations) {
+    public ArrayList<HubLocation> sortHubLocations(String hubsFilePath) {
+
+        ArrayList<HubLocation> locations = importHubLocations(hubsFilePath);
         for (HubLocation possibleHub: locations) {
             calculatePotentialHubImprovement(possibleHub);
         }
@@ -108,6 +110,23 @@ public class ConnectivityFinder {
             Scanner scanner = new Scanner(new File(filename));
             while(scanner.hasNext()){
                 locations.add(new Location(scanner.nextLine()));
+            }
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return locations;
+    }
+
+    public static ArrayList<HubLocation> importHubLocations(String filename) {
+        ArrayList<HubLocation> locations = new ArrayList<>();
+
+        try {
+            Scanner scanner = new Scanner(new File(filename));
+            while(scanner.hasNext()){
+                locations.add(new HubLocation(scanner.nextLine()));
             }
             scanner.close();
 

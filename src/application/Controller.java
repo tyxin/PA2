@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -74,7 +75,11 @@ public class Controller implements Initializable {
     }
 
     public void findOptimalITHButton(ActionEvent actionEvent) {
+        model.initConnectivityFinder(estateTextField.getText(), new ArrayList<>(data));
+        model.findBestITHLocations(ITHTextField.getText());
 
+        // TODO: update the ranked table list with the ranked list of ITH locations
+        // that can be found in model.sortedHubLocations
     }
 
     @Override
