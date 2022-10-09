@@ -50,7 +50,7 @@ public class Facility {
                 '}';
     }
 
-    public Double[] getCoords() {
-        return new Double[]{x_coord, y_coord};
+    public double[] getCoords() {
+        return new double[]{x_coord, y_coord};
     }
 }

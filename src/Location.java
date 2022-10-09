@@ -59,8 +59,8 @@ public class Location {
 
     public double getY_coord() { return y_coord; }
 
-    public Double[] getCoords() {
-        return new Double[]{x_coord, y_coord};
+    public double[] getCoords() {
+        return new double[]{x_coord, y_coord};
     }
 
     @Override

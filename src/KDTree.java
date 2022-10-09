@@ -1,68 +1,97 @@
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.NoSuchElementException;
-import java.util.PriorityQueue;
-public class KDTree<T extends Number & Comparable<? super T>> {
+import java.util.*;
+
+public class KDTree<T> {
     private int dimensions;
-    private CustomKDTreeNode<T[]> root;
+    private CustomKDTreeNode<T> root;
 
     private double minDist = Double.MAX_VALUE;
-    private PriorityQueue<CustomKDTreeNode<T[]>> nearestNeighbours =new PriorityQueue<CustomKDTreeNode<T[]>>(
-            10, new Comparator<CustomKDTreeNode<T[]>>() {
-        public int compare(CustomKDTreeNode<T[]> n1, CustomKDTreeNode<T[]> n2) {
-            if (n1.getDist() < n2.getDist()) return 1;
-            if (n1.getDist() > n2.getDist()) return -1;
-            return 0;
-        }
-    });
-    public KDTree(int dimensions, T[][] nodesList, Facility[] facilities) {
-        this.dimensions = dimensions;
-        for (int i = 0; i < nodesList.length; i++) {
-            root = insert(root, nodesList[i], facilities[i]);
-        }
-    }
-    public KDTree(int dimensions, Facility[] facilities) {
-        this.dimensions = dimensions;
-        for (int i = 0; i < facilities.length; i++) {
-            root = insert(root, (T[]) facilities[i].getCoords(), facilities[i]);
-        }
-    }
-    public CustomKDTreeNode<T[]> getRoot(){return root;}
+    private PriorityQueue<CustomKDTreeNode<T>> nearestNeighbours = new PriorityQueue<>(
+            10, (n1, n2) -> {
+                if (n1.getDist() < n2.getDist()) return 1;
+                if (n1.getDist() > n2.getDist()) return -1;
+                return 0;
+            });
 
-    public CustomKDTreeNode<T[]> insert(CustomKDTreeNode<T[]> parent, T[] point, Facility facility) {
-        return insertHelper(parent, point, facility, 0);
+    public KDTree(int dimensions, double[][] points) {
+        this.dimensions = dimensions;
+        ArrayList<CustomKDTreeNode<T>> nodes = new ArrayList<>(points.length);
+        for(int i = 0; i < points.length; i++) {
+            nodes.add(new CustomKDTreeNode<>(null,2,points[i]));
+        }
+        root = construct(null, nodes, 0);
     }
-    public CustomKDTreeNode<T[]> insertHelper(CustomKDTreeNode<T[]> parent, T[] point, Facility facility, int depth) {
+    public KDTree(int dimensions, T[] facilities, double[][] points) {
+        this.dimensions = dimensions;
+        ArrayList<CustomKDTreeNode<T>> nodes = new ArrayList<>(points.length);
+        for(int i = 0; i < points.length; i++) {
+            nodes.add(new CustomKDTreeNode<>(facilities[i],2,points[i]));
+        }
+        root = construct(null, nodes, 0);
+    }
+
+    private CustomKDTreeNode<T> construct(CustomKDTreeNode<T> parent, ArrayList<CustomKDTreeNode<T>> nodes, int depth) {
+        if (nodes.isEmpty()) {
+            return null;
+        }
         int cd = depth % dimensions;
-        if (parent == null) return new CustomKDTreeNode<>(point, 2, facility);
+        CustomKDTreeNode<T> medianNode = getApproxMedian(nodes, cd);
+        ArrayList<CustomKDTreeNode<T>> leftOfMedian = new ArrayList<>(nodes.size() / 2);
+        ArrayList<CustomKDTreeNode<T>> rightOfMedian = new ArrayList<>(nodes.size() / 2);
 
-        if (point[cd].compareTo(parent.getItem()[cd]) < 0)
-            parent.setCustomNeighbour(0, insertHelper(parent.customNeighbours[0], point, facility, depth + 1));
-        else
-            parent.setCustomNeighbour(1, insertHelper(parent.customNeighbours[1], point, facility, depth + 1));
-        return parent;
+        for (CustomKDTreeNode<T> node : nodes) {
+            if (node.equals(medianNode)) {
+                continue;
+            }
+            if (node.getPoint()[cd] < medianNode.getPoint()[cd]) leftOfMedian.add(node);
+            else rightOfMedian.add(node);
+        }
+        medianNode.customNeighbours[0] = construct(medianNode, leftOfMedian, depth + 1);
+        medianNode.customNeighbours[1] = construct(medianNode, rightOfMedian, depth + 1);
+        return medianNode;
     }
 
-    public double getDistanceSquared(T[] point1, T[] point2) {
+
+    private CustomKDTreeNode<T> getApproxMedian(ArrayList<CustomKDTreeNode<T>> nodes, int cd) {
+        int numberOfElements = (int) Math.max(nodes.size() * 0.1, 1);
+        // pick a random subset from the list
+        ArrayList<CustomKDTreeNode<T>> subset = pickRandomSubset(nodes, numberOfElements);
+        // get the median of that subset, assume it is close enough to actual median
+        subset.sort(Comparator.comparingDouble(point -> point.getPoint()[cd]));
+        return subset.get(subset.size() / 2);
+    }
+
+    private ArrayList<CustomKDTreeNode<T>> pickRandomSubset(ArrayList<CustomKDTreeNode<T>> nodes, int numberOfElements) {
+        ArrayList<CustomKDTreeNode<T>> subset = new ArrayList<>(numberOfElements);
+        Random random = new Random(42);
+        for (int i = 0; i < numberOfElements; i++) {
+            int index = random.nextInt(numberOfElements);
+            subset.add(nodes.get(index));
+        }
+        return subset;
+    }
+
+    public CustomKDTreeNode<T> getRoot(){return root;}
+
+    public double getDistanceSquared(double[] point1, double[] point2) {
         double distance = 0;
         for (int i = 0; i < dimensions; i++) {
-            double delta = point1[i].doubleValue() - point2[i].doubleValue();
+            double delta = point1[i] - point2[i];
             distance += (delta * delta);
         }
         return distance;
     }
 
-    public CustomKDTreeNode<T[]>[] findNearest(T[] target, int k){
+    public CustomKDTreeNode<T>[] findNearest(double[] target, int k){
         if (root==null){
             throw new NoSuchElementException("KD Tree is empty!");
         }
-        nearest(root, new CustomKDTreeNode<>(target), 0, k);
+        nearest(root, new CustomKDTreeNode<>(null,target), 0, k);
         return nearestNeighbours.toArray(new CustomKDTreeNode[0]);
     }
 
-    private void nearest(CustomKDTreeNode<T[]> node, CustomKDTreeNode<T[]> nodeTarget, int depth, int k) {
+    private void nearest(CustomKDTreeNode<T> node, CustomKDTreeNode<T> nodeTarget, int depth, int k) {
         if(node==null) return;
-        double dist = getDistanceSquared(node.getItem(), nodeTarget.getItem());
+        double dist = getDistanceSquared(node.getPoint(), nodeTarget.getPoint());
         node.setDist(dist);
         if (dist < minDist && dist != 0) {
             minDist = dist;
@@ -70,13 +99,13 @@ public class KDTree<T extends Number & Comparable<? super T>> {
         nearestNeighbours.add(node);
         if (nearestNeighbours.size() > k) nearestNeighbours.poll();
         int cd = depth % dimensions;
-        if (nodeTarget.getItem()[cd].compareTo(node.getItem()[cd]) < 0) {
+        if (nodeTarget.getPoint()[cd] < node.getPoint()[cd]) {
             nearest(node.customNeighbours[0], nodeTarget, depth + 1, k);
-            if (nodeTarget.getItem()[cd].doubleValue() + minDist >= node.getItem()[cd].doubleValue())
-                nearest(node.customNeighbours[1], nodeTarget, depth + 1,k );
+            if (nodeTarget.getPoint()[cd] + minDist >= node.getPoint()[cd])
+                nearest(node.customNeighbours[1], nodeTarget, depth + 1, k );
         } else {
             nearest(node.customNeighbours[1], nodeTarget, depth + 1,k );
-            if (nodeTarget.getItem()[cd].doubleValue() - minDist <= node.getItem()[cd].doubleValue())
+            if (nodeTarget.getPoint()[cd] - minDist <= node.getPoint()[cd])
                 nearest(node.customNeighbours[0], nodeTarget, depth + 1, k);
         }
     }
