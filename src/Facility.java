@@ -22,7 +22,7 @@ public class Facility {
         this.y_coord = Double.parseDouble(tokens[1]);
         this.x_coord = Double.parseDouble(tokens[2]);
         this.facilityType = type;
-        this.facilityQuality = tokens[3];
+        this.facilityQuality = Integer.parseInt(tokens[3]);
         this.rank = rank;
     }
 

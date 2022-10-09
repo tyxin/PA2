@@ -42,19 +42,6 @@ public class Location {
 
     }
 
-
-    public double getImprovement(ArrayList<Location> list){
-
-        double points = 0.0;
-
-        for (int i=0;i<list.size();i++){
-            Location location = list.get(i);
-            points+=100/(location.getConnectivity()*getDistanceTo(location.getX_coord(), location.getY_coord()));
-        }
-
-        return points;
-    }
-
     public double getX_coord() { return x_coord; }
 
     public double getY_coord() { return y_coord; }
