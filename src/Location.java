@@ -28,16 +28,16 @@ public class Location {
 
 
     public void setConnectivity(ArrayList<Facility> list){
-        
+
         double points = 0.0;
 
         for (int i=0;i<list.size();i++){
             Facility facility = list.get(i);
-            points+=facility.getFacilityQuality()/getDistanceTo(facility.getX_coord(), facility.getY_coord());
+            points+=Math.sqrt(facility.getRank())*facility.getFacilityQuality()/getDistanceTo(facility.getX_coord(), facility.getY_coord());
         }
-        
+
         points/=(double)list.size();
-        
+
         connectivity = points;
 
     }

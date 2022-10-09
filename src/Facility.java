@@ -16,12 +16,14 @@ public class Facility {
         this.facilityQuality = facilityQuality;
     }
 
-    public Facility(String data) {
+    public Facility(String data, String type, int rank) {
         String[] tokens = data.split(",");
         this.name = tokens[0];
         this.y_coord = Double.parseDouble(tokens[1]);
         this.x_coord = Double.parseDouble(tokens[2]);
-        this.facilityType = tokens[3];
+        this.facilityType = type;
+        this.facilityQuality = tokens[3];
+        this.rank = rank;
     }
 
     public double getDistanceTo(double x_coord_2, double y_coord_2){

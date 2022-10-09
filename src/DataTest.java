@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class DataTest {
     public static void main(String[] args) {
-        KDTree<Facility> tree = importFacilityData("src/resources/updated/prisch_locations.csv");
+        KDTree<Facility> tree = importFacilityData("prisch", 1);
 
         Location[] estates = importLocationData("src/resources/estate_locations.csv");
         Location chosenLocation = estates[3];
@@ -19,12 +19,12 @@ public class DataTest {
     }
 
     // to be used for facility datasets i.e. those with a trailing number indicating FacilityType
-    public static KDTree<Facility> importFacilityData(String filename) {
+    public static KDTree<Facility> importFacilityData(String facilityType, int rank) {
         ArrayList<Facility> facilities = new ArrayList<>();
         try {
-            Scanner scanner = new Scanner(new File(filename));
+            Scanner scanner = new Scanner(new File("src/resources/updated/"+facilityType+"_locations.csv"));
             while(scanner.hasNext()){
-                facilities.add(new Facility(scanner.nextLine()));
+                facilities.add(new Facility(scanner.nextLine(), facilityType, rank));
             }
             scanner.close();
 
