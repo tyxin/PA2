@@ -42,7 +42,7 @@
                <children>
                   <TableView fx:id="facilityTableView" prefHeight="193.0" prefWidth="794.0">
                     <columns>
-                      <TableColumn fx:id="facilityTypeCol" prefWidth="255.3333181142807" text="Facility Type" />
+                      <TableColumn fx:id="facilityTypeCol" prefWidth="255.3333181142807" text="Model.Facility Type" />
                       <TableColumn fx:id="facilityDirectoryCol" minWidth="0.0" prefWidth="470.0000305175781" text="Directory" />
                         <TableColumn fx:id="facilityRankCol" minWidth="0.0" prefWidth="149.3333740234375" text="Rank" />
                     </columns>
@@ -83,7 +83,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Facility Type:">
+                        <Label text="Model.Facility Type:">
                            <HBox.margin>
                               <Insets left="10.0" top="2.0" />
                            </HBox.margin>

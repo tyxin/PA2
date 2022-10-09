@@ -6,8 +6,11 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import Model.ConnectivityFinder;
 
 public class Model {
+    ConnectivityFinder connectivityFinder;
+
 
     public String RetrieveFacilityResouceFile(){
         FileChooser jfc = new FileChooser();

@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package Model;
+
 import java.util.Arrays;
 
 public class CustomKDTreeNode<T> extends Node<T>{

@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.*;
 public class Location {
     //this is our custom object to feed into node
@@ -52,7 +54,7 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Model.Location{" +
                 "x_coord=" + x_coord +
                 ", y_coord=" + y_coord +
                 ", name='" + name + '\'' +

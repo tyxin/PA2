@@ -1,3 +1,5 @@
+package Model;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -7,7 +9,7 @@ public class ConnectivityFinder {
     private ArrayList<Location> estateArrayList;
 
     // completely arbitrary constant that decides how many closest estates to factor in
-    // when we decide a Location's potential connectivity improvement
+    // when we decide a Model.Location's potential connectivity improvement
     private final int N_ESTATES = 4;
 
     private ArrayList<KDTree<Facility>> kdTreeArrayList;

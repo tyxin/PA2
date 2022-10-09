@@ -23,12 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="CustomKDTreeNode now contains a Facility it represents">
-      <change afterPath="$PROJECT_DIR$/src/HubLocation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConnectivityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConnectivityFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddQuality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/AddQuality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConnectivityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ConnectivityFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomKDTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CustomKDTreeNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/DataTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HubLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/HubLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KDTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/KDTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KDTreeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/KDTreeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +52,12 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="uhoh" />
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -83,15 +98,28 @@
   </component>
   <component name="RunManager" selected="Application.placeHolderMain">
     <configuration name="DataTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DataTest" />
+      <option name="MAIN_CLASS_NAME" value="Model.DataTest" />
       <module name="PA2" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="KDTreeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="KDTreeTest" />
+      <option name="MAIN_CLASS_NAME" value="Model.KDTreeTest" />
       <module name="PA2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="application.Main" />
+      <module name="PA2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,6 +140,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.placeHolderMain" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.DataTest" />
         <item itemvalue="Application.KDTreeTest" />
       </list>

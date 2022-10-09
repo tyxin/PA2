@@ -1,3 +1,5 @@
+package Model;
+
 public class Facility {
     //this is our custom object to feed into node
     private double x_coord;
@@ -42,7 +44,7 @@ public class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
+        return "Model.Facility{" +
                 "x_coord=" + x_coord +
                 ", y_coord=" + y_coord +
                 ", name='" + name + '\'' +
