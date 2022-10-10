@@ -57,6 +57,9 @@ public class Model {
     public boolean checkValidFacility(String facilityType, String facilityFilePath, String facilityRank){
         //no commas allowed
         String regex = "^[^,]+$";
+        if (facilityType.trim().equals("")){
+            return false;
+        }
         boolean validType = facilityType.matches(regex);
         try{
             int rank = Integer.parseInt(facilityRank);

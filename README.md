@@ -1,4 +1,4 @@
-# PA2
+# Discovering Integrated Hubs!
 
 ## Installation
 

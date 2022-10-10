@@ -9,7 +9,10 @@ public class HubLocation {
     private String name;
 
     public HubLocation(String string) {
-        this.name = string;
+        String[] tokens = string.split(",");
+        this.name = tokens[0];
+        this.y_coord = Double.parseDouble(tokens[1]);
+        this.x_coord = Double.parseDouble(tokens[2]);
     }
 
     private double improvement;

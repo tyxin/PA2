@@ -22,15 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="Update on JavaFX Application">
-      <change afterPath="$PROJECT_DIR$/src/application/ITHTable.java" afterDir="false" />
+    <list default="true" id="48fa98c5-ab9a-4dc6-8e12-7ea83858ea99" name="Default Changelist" comment="Update on JavaFX Application and relevant model methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ConnectivityFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ConnectivityFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/HubLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/HubLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/ith_locations.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/ith_locations.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +85,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -277,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665344306827</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Update on JavaFX Application and relevant model methods">
+      <created>1665368150172</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1665368150172</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,29 +314,42 @@
     <MESSAGE value="Update on JavaFX Application" />
     <MESSAGE value="Add updated facilities data" />
     <MESSAGE value="move classes in default package into Model package" />
-    <option name="LAST_COMMIT_MESSAGE" value="move classes in default package into Model package" />
+    <MESSAGE value="Update on JavaFX Application and relevant model methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update on JavaFX Application and relevant model methods" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser" timestamp="1665366431408">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="42" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1665366431408" />
-    <state width="1237" height="45" key="GridCell.Tab.0.bottom" timestamp="1665366972819">
+    <state width="1237" height="67" key="GridCell.Tab.0.bottom" timestamp="1665370853534">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="45" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1665366972819" />
-    <state width="1237" height="45" key="GridCell.Tab.0.center" timestamp="1665366972819">
+    <state width="1237" height="67" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1665370853534" />
+    <state width="1237" height="67" key="GridCell.Tab.0.center" timestamp="1665370853534">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="45" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1665366972819" />
-    <state width="1237" height="45" key="GridCell.Tab.0.left" timestamp="1665366972819">
+    <state width="1237" height="67" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1665370853534" />
+    <state width="1237" height="67" key="GridCell.Tab.0.left" timestamp="1665370853534">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="45" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1665366972819" />
-    <state width="1237" height="45" key="GridCell.Tab.0.right" timestamp="1665366972819">
+    <state width="1237" height="67" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1665370853534" />
+    <state width="1237" height="67" key="GridCell.Tab.0.right" timestamp="1665370853534">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="45" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1665366972819" />
+    <state width="1237" height="67" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1665370853534" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1665371601678">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1665371601678" />
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2" timestamp="1665368152306">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="61" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1665368152306" />
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1665369418694">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="458" y="255" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1665369418694" />
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1665367861002">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

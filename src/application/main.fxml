@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -42,7 +41,7 @@
                <children>
                   <TableView fx:id="facilityTableView" prefHeight="193.0" prefWidth="794.0">
                     <columns>
-                      <TableColumn fx:id="facilityTypeCol" prefWidth="255.3333181142807" text="Model.Facility Type" />
+                      <TableColumn fx:id="facilityTypeCol" prefWidth="255.3333181142807" text="Facility Type" />
                       <TableColumn fx:id="facilityDirectoryCol" minWidth="0.0" prefWidth="470.0000305175781" text="Directory" />
                         <TableColumn fx:id="facilityRankCol" minWidth="0.0" prefWidth="149.3333740234375" text="Rank" />
                     </columns>
@@ -190,11 +189,6 @@
                         <Insets left="10.0" top="10.0" />
                      </GridPane.margin>
                   </HBox>
-                  <ImageView fx:id="imageView" fitHeight="304.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                     <GridPane.margin>
-                        <Insets top="20.0" />
-                     </GridPane.margin>
-                  </ImageView>
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
                      <children>
                         <Button mnemonicParsing="false" onAction="#findOptimalITHButton" prefHeight="44.0" prefWidth="645.0" text="Find Optimal Integrated Hubs!">
@@ -210,7 +204,7 @@
                         <Insets left="20.0" top="20.0" />
                      </GridPane.margin>
                   </HBox>
-                  <TableView fx:id="resultTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="3">
+                  <TableView fx:id="resultTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowSpan="3">
                     <columns>
                         <TableColumn fx:id="rankITHCol" prefWidth="44.000001311302185" text="Rank" />
                       <TableColumn fx:id="nameITHCol" prefWidth="118.66675186157227" text="Integrated Hub" />
@@ -218,7 +212,7 @@
                         <TableColumn fx:id="longtitudeITHCol" minWidth="6.0" prefWidth="100.0" text="Longtitude" />
                     </columns>
                      <GridPane.margin>
-                        <Insets bottom="5.0" right="5.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
                      </GridPane.margin>
                   </TableView>
                </children>
