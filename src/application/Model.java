@@ -19,15 +19,18 @@ public class Model {
     public void initConnectivityFinder(String estateLocationsPath,
                                        ArrayList<FacilityTable> facilities) throws FileNotFoundException{
 
-        Map<String, Integer> rankMap = new HashMap<>();
+        ArrayList<String> facilityTypeList = new ArrayList<String>();
+        ArrayList<String> filePathList = new ArrayList<String>();
+        ArrayList<Integer> rankList = new ArrayList<Integer>();
+
 
         for (int i = 0;i<facilities.size();i++){
-            Integer rank = Integer.parseInt(facilities.get(i).getFacilityRankString());
-            String facilityPath = facilities.get(i).getFacilityPathString();
-            rankMap.put(facilityPath,rank);
+            rankList.add(Integer.parseInt(facilities.get(i).getFacilityRankString()));
+            filePathList.add(facilities.get(i).getFacilityPathString());
+            facilityTypeList.add(facilities.get(i).getFacilityTypeString());
         }
 
-        connectivityFinder = new ConnectivityFinder(rankMap,estateLocationsPath);
+        connectivityFinder = new ConnectivityFinder(facilityTypeList, rankList, filePathList, estateLocationsPath);
 
         connectivityFinder.assignConnectivity();
     }

@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class ConnectivityFinder {
-    private Map<String, Integer> rankMap ;
+
+    ArrayList<String> facilityTypeList, filePathList;
+    ArrayList<Integer> rankList;
     private ArrayList<Location> estateArrayList;
 
     // completely arbitrary constant that decides how many closest estates to factor in
@@ -15,9 +17,12 @@ public class ConnectivityFinder {
     private ArrayList<KDTree<Facility>> kdTreeArrayList;
     private KDTree<Location> estatesKdTree;
 
-    public ConnectivityFinder(Map<String, Integer> rankMap, String locationFilePath) throws FileNotFoundException{
-        this.rankMap = rankMap;
+    public ConnectivityFinder(ArrayList<String> facilityTypeList, ArrayList<Integer> rankList, ArrayList<String> filePathList, String locationFilePath) throws FileNotFoundException{
         estateArrayList = importLocationData(locationFilePath);
+
+        this.facilityTypeList = facilityTypeList;
+        this.filePathList = filePathList;
+        this.rankList = rankList;
 
         createKDTreeList();
 
@@ -27,11 +32,9 @@ public class ConnectivityFinder {
     public void createKDTreeList(){
         kdTreeArrayList = new ArrayList<KDTree<Facility>>();
 
-        for (Map.Entry<String, Integer> entry : rankMap.entrySet()) {
-            String type = entry.getKey();
-            int rank = entry.getValue();
+        for (int i=0;i<filePathList.size();i++) {
 
-            KDTree<Facility> kdTree = importFacilityData(type, rank);
+            KDTree<Facility> kdTree = importFacilityData(filePathList.get(i), facilityTypeList.get(i), rankList.get(i));
             kdTreeArrayList.add(kdTree);
 
         }
@@ -82,10 +85,10 @@ public class ConnectivityFinder {
 
 
 
-    public static KDTree<Facility> importFacilityData(String facilityType, int rank) {
+    public static KDTree<Facility> importFacilityData(String filePath, String facilityType, int rank) {
         ArrayList<Facility> facilities = new ArrayList<>();
         try {
-            Scanner scanner = new Scanner(new File("src/resources/updated/"+facilityType+"_locations.csv"));
+            Scanner scanner = new Scanner(new File(filePath));
             while(scanner.hasNext()){
                 facilities.add(new Facility(scanner.nextLine(), facilityType, rank));
             }
