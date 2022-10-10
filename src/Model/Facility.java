@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Arrays;
+
 public class Facility {
     //this is our custom object to feed into node
     private double x_coord;
@@ -20,11 +22,20 @@ public class Facility {
 
     public Facility(String data, String type, int rank) {
         String[] tokens = data.split(",");
-        this.name = tokens[0];
-        this.y_coord = Double.parseDouble(tokens[1]);
-        this.x_coord = Double.parseDouble(tokens[2]);
+        if (tokens.length > 4) {
+            this.name = data.split("\"")[1];
+            tokens = data.split("\"")[2].split(",");
+            this.y_coord = Double.parseDouble(tokens[1]);
+            this.x_coord = Double.parseDouble(tokens[2]);
+            this.facilityQuality = Integer.parseInt(tokens[3]);
+        } else {
+            this.name = tokens[0];
+            this.y_coord = Double.parseDouble(tokens[1]);
+            this.x_coord = Double.parseDouble(tokens[2]);
+            this.facilityQuality = Integer.parseInt(tokens[3]);
+        }
+
         this.facilityType = type;
-        this.facilityQuality = Integer.parseInt(tokens[3]);
         this.rank = rank;
     }
 
