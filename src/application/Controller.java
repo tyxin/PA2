@@ -232,8 +232,12 @@ public class Controller implements Initializable {
 
     private boolean rankChecker(ArrayList<Integer> rankList){
 
-        //TODO: lynus here thanks
+        for (int i = 1; i <= rankList.size(); i++) {
+            if (!rankList.contains(i)) {
+                return false;
+            }
+        }
 
-        return false;
+        return true;
     }
 }
