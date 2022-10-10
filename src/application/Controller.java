@@ -1,5 +1,6 @@
 package application;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,11 +14,25 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import Model.HubLocation;
 
 public class Controller implements Initializable {
+
+    @FXML
+    private TableColumn rankITHCol;
+
+    @FXML
+    private TableColumn nameITHCol;
+
+    @FXML
+    private TableColumn latitudeITHCol;
+
+    @FXML
+    private TableColumn longtitudeITHCol;
 
     @FXML
     private TableColumn facilityTypeCol;
@@ -57,7 +72,8 @@ public class Controller implements Initializable {
 
     private Model model;
 
-    final ObservableList<FacilityTable> data = FXCollections.observableArrayList();
+    final ObservableList<FacilityTable> dataFacility = FXCollections.observableArrayList();
+    final ObservableList<ITHTable> dataITH = FXCollections.observableArrayList();
 
     public void chooseFileITH(ActionEvent actionEvent) {
         String filePath = model.RetrieveFacilityResouceFile();
@@ -75,11 +91,48 @@ public class Controller implements Initializable {
     }
 
     public void findOptimalITHButton(ActionEvent actionEvent) {
-        model.initConnectivityFinder(estateTextField.getText(), new ArrayList<>(data));
-        model.findBestITHLocations(ITHTextField.getText());
 
-        // TODO: update the ranked table list with the ranked list of ITH locations
-        // that can be found in model.sortedHubLocations
+
+        try{
+            model.initConnectivityFinder(estateTextField.getText(), new ArrayList<>(dataFacility));
+            model.findBestITHLocations(ITHTextField.getText());
+
+            ArrayList<Integer> rankArrayList = new ArrayList<>();
+
+            for(int i = 0;i<dataFacility.size();i++){
+                int tempRank = Integer.parseInt(dataFacility.get(i).getFacilityRankString());
+                rankArrayList.add(tempRank);
+            }
+
+            if (rankChecker(rankArrayList)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Invalid Rank");
+                alert.setHeaderText("Invalid Rank!");
+                alert.setContentText("Please input continuous rank from 1 to n, where n is the number of facilities");
+                alert.showAndWait();
+            }else{
+                dataITH.clear();
+
+                ArrayList<HubLocation> sortedHubLocations = model.getSortedHubLocations();
+                for (int i = 0;i<sortedHubLocations.size();i++){
+                    HubLocation tempHubLocation = sortedHubLocations.get(i);
+                    dataITH.add(new ITHTable(i+1,tempHubLocation.getName(),
+                            tempHubLocation.getX_coord(),tempHubLocation.getY_coord()));
+                }
+
+                resultTableView.setItems(dataITH);
+            }
+
+
+
+        }catch (FileNotFoundException e){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("File Not Found");
+            alert.setHeaderText("Invalid file directory!");
+            alert.setContentText("Please input all files required correctly in format required.");
+            alert.showAndWait();
+        }
+
     }
 
     @Override
@@ -88,14 +141,20 @@ public class Controller implements Initializable {
         facilityTypeCol.setCellValueFactory(new PropertyValueFactory<FacilityTable, String>("facilityTypeString"));
         facilityDirectoryCol.setCellValueFactory(new PropertyValueFactory<FacilityTable, String>("facilityPathString"));
         facilityRankCol.setCellValueFactory(new PropertyValueFactory<FacilityTable, String>("facilityRankString"));
-        facilityTableView.setItems(data);
+        facilityTableView.setItems(dataFacility);
+
+        rankITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable, String>("ITHrank"));
+        nameITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable, String>("ITHname"));
+        latitudeITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable, String>("ITHlatitude"));
+        longtitudeITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable,String>("ITHlongtitude"));
+        resultTableView.setItems(dataITH);
 
         facilityTableView.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) ->{
             if (newSelection!=null){
                 int selectedIndex = facilityTableView.getSelectionModel().getSelectedIndex();
-                facilityTypeTextField.setText(data.get(selectedIndex).getFacilityTypeString());
-                facilityDirectoryTextField.setText(data.get(selectedIndex).getFacilityPathString());
-                rankFacilityTextField.setText(data.get(selectedIndex).getFacilityRankString());
+                facilityTypeTextField.setText(dataFacility.get(selectedIndex).getFacilityTypeString());
+                facilityDirectoryTextField.setText(dataFacility.get(selectedIndex).getFacilityPathString());
+                rankFacilityTextField.setText(dataFacility.get(selectedIndex).getFacilityRankString());
 
             }
         });
@@ -114,11 +173,11 @@ public class Controller implements Initializable {
             alert.setContentText("Please fill in required fields with valid input for successful edit");
             alert.showAndWait();
         }else{
-            data.add(new FacilityTable(facilityType,facilityFilePath,facilityRank));
+            dataFacility.add(new FacilityTable(facilityType,facilityFilePath,facilityRank));
             facilityTypeTextField.clear();
             facilityDirectoryTextField.clear();
             rankFacilityTextField.clear();
-            facilityTableView.setItems(data);
+            facilityTableView.setItems(dataFacility);
             facilityTableView.getSelectionModel().clearSelection();
         }
 
@@ -145,12 +204,12 @@ public class Controller implements Initializable {
                 alert.setContentText("Please fill in required fields with valid inputs for successful edit");
                 alert.showAndWait();
             }else{
-                data.remove(editIndex);
-                data.add(editIndex,new FacilityTable(facilityType,facilityFilePath,facilityRank));
+                dataFacility.remove(editIndex);
+                dataFacility.add(editIndex,new FacilityTable(facilityType,facilityFilePath,facilityRank));
                 facilityTypeTextField.clear();
                 facilityDirectoryTextField.clear();
                 rankFacilityTextField.clear();
-                facilityTableView.setItems(data);
+                facilityTableView.setItems(dataFacility);
             }
         }
         facilityTableView.getSelectionModel().clearSelection();
@@ -165,9 +224,16 @@ public class Controller implements Initializable {
             alert.setContentText("Please select a row before you attempt to delete");
             alert.showAndWait();
         }else{
-            data.remove(deleteIndex);
-            facilityTableView.setItems(data);
+            dataFacility.remove(deleteIndex);
+            facilityTableView.setItems(dataFacility);
         }
         facilityTableView.getSelectionModel().clearSelection();
+    }
+
+    private boolean rankChecker(ArrayList<Integer> rankList){
+
+        //TODO: lynus here thanks
+
+        return false;
     }
 }

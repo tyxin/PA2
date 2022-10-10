@@ -6,25 +6,33 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import Model.ConnectivityFinder;
 import Model.HubLocation;
 
 public class Model {
-    ConnectivityFinder connectivityFinder;
-    ArrayList<HubLocation> sortedHubLocations;
+    private ConnectivityFinder connectivityFinder;
+    private ArrayList<HubLocation> sortedHubLocations;
 
     public void initConnectivityFinder(String estateLocationsPath,
-                                       ArrayList<FacilityTable> facilities) {
-        // bruh idk whats going on here anymore
-        // no clue how to use FacilityTable also
-        // connectivityFinder = new ConnectivityFinder(??, estateLocationsPath)
-        // first parameter should be a Map<String, Integer> of the different facilities
+                                       ArrayList<FacilityTable> facilities) throws FileNotFoundException{
+
+        Map<String, Integer> rankMap = new HashMap<>();
+
+        for (int i = 0;i<facilities.size();i++){
+            Integer rank = Integer.parseInt(facilities.get(i).getFacilityRankString());
+            String facilityPath = facilities.get(i).getFacilityPathString();
+            rankMap.put(facilityPath,rank);
+        }
+
+        connectivityFinder = new ConnectivityFinder(rankMap,estateLocationsPath);
 
         connectivityFinder.assignConnectivity();
     }
 
-    public void findBestITHLocations(String ITHLocationsPath) {
+    public void findBestITHLocations(String ITHLocationsPath) throws FileNotFoundException{
         this.sortedHubLocations = connectivityFinder.sortHubLocations(ITHLocationsPath);
     }
 
@@ -57,5 +65,7 @@ public class Model {
         }
         return validType;
     }
+
+    public ArrayList<HubLocation> getSortedHubLocations() { return sortedHubLocations; }
 }
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class HubLocation {
     private double x_coord;
     private double y_coord;
+
     private String name;
 
     public HubLocation(String string) {
@@ -40,6 +41,8 @@ public class HubLocation {
     public double[] getCoords() {
         return new double[]{x_coord, y_coord};
     }
+
+    public String getName() { return name; }
 
 
 }

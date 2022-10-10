@@ -15,13 +15,11 @@ public class ConnectivityFinder {
     private ArrayList<KDTree<Facility>> kdTreeArrayList;
     private KDTree<Location> estatesKdTree;
 
-    public ConnectivityFinder(Map<String, Integer> rankMap, String locationFilePath){
+    public ConnectivityFinder(Map<String, Integer> rankMap, String locationFilePath) throws FileNotFoundException{
         this.rankMap = rankMap;
         estateArrayList = importLocationData(locationFilePath);
 
         createKDTreeList();
-
-
 
     }
 
@@ -69,7 +67,7 @@ public class ConnectivityFinder {
         possibleHub.setImprovement(nearestEstates);
     }
 
-    public ArrayList<HubLocation> sortHubLocations(String hubsFilePath) {
+    public ArrayList<HubLocation> sortHubLocations(String hubsFilePath) throws FileNotFoundException{
 
         ArrayList<HubLocation> locations = importHubLocations(hubsFilePath);
         for (HubLocation possibleHub: locations) {
@@ -103,36 +101,27 @@ public class ConnectivityFinder {
 
 
 
-    public static ArrayList<Location> importLocationData(String filename) {
+    public static ArrayList<Location> importLocationData(String filename) throws FileNotFoundException{
         ArrayList<Location> locations = new ArrayList<>();
 
-        try {
-            Scanner scanner = new Scanner(new File(filename));
-            while(scanner.hasNext()){
-                locations.add(new Location(scanner.nextLine()));
-            }
-            scanner.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        Scanner scanner = new Scanner(new File(filename));
+        while(scanner.hasNext()){
+            locations.add(new Location(scanner.nextLine()));
         }
+        scanner.close();
 
         return locations;
     }
 
-    public static ArrayList<HubLocation> importHubLocations(String filename) {
+    public static ArrayList<HubLocation> importHubLocations(String filename) throws FileNotFoundException{
         ArrayList<HubLocation> locations = new ArrayList<>();
 
-        try {
-            Scanner scanner = new Scanner(new File(filename));
-            while(scanner.hasNext()){
-                locations.add(new HubLocation(scanner.nextLine()));
-            }
-            scanner.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        Scanner scanner = new Scanner(new File(filename));
+        while(scanner.hasNext()){
+            locations.add(new HubLocation(scanner.nextLine()));
         }
+        scanner.close();
+
 
         return locations;
     }
