@@ -31,9 +31,9 @@ public class HubLocation {
 
         for (int i=0;i<list.size();i++){
             Location location = list.get(i);
+            if (getDistanceTo(location.getX_coord(), location.getY_coord()) == 0) continue;
             points+=100/(location.getConnectivity()*getDistanceTo(location.getX_coord(), location.getY_coord()));
         }
-
         this.improvement = points;
     }
 

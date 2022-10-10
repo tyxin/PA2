@@ -77,8 +77,7 @@ public class ConnectivityFinder {
             calculatePotentialHubImprovement(possibleHub);
         }
 
-        locations.sort(Comparator.comparingDouble(HubLocation::getImprovement));
-
+        locations.sort(Collections.reverseOrder(Comparator.comparingDouble(HubLocation::getImprovement)));
         return locations;
     }
 

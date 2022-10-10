@@ -12,7 +12,7 @@ public class CommandLineTool {
 
         String[] facilityTypes = {"Healthcare", "Primary Schools", "MRT", "Bus Exchange", "Secondary Schools"};
         ArrayList<String> facilityTypesList = new ArrayList<>(Arrays.asList(facilityTypes));
-        Integer[] rankings = {1, 2, 3, 5, 4};
+        Integer[] rankings = {5,4,3,2,1};
         ArrayList<Integer> rankingsList = new ArrayList<>(Arrays.asList(rankings));
 
         String[] filePrefixes = {"healthcare", "prisch", "mrt", "busexchange", "secsch"};
