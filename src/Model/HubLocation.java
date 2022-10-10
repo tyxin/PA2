@@ -47,5 +47,13 @@ public class HubLocation {
 
     public String getName() { return name; }
 
-
+    @Override
+    public String toString() {
+        return "HubLocation{" +
+                "x_coord=" + x_coord +
+                ", y_coord=" + y_coord +
+                ", name='" + name + '\'' +
+                ", improvement=" + improvement +
+                '}';
+    }
 }

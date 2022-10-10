@@ -18,7 +18,7 @@ public class ConnectivityFinder {
     private KDTree<Location> estatesKdTree;
 
     public ConnectivityFinder(ArrayList<String> facilityTypeList, ArrayList<Integer> rankList, ArrayList<String> filePathList, String locationFilePath) throws FileNotFoundException{
-        estateArrayList = importLocationData(locationFilePath);
+        estateArrayList = importEstateData(locationFilePath);
 
         this.facilityTypeList = facilityTypeList;
         this.filePathList = filePathList;
@@ -104,7 +104,7 @@ public class ConnectivityFinder {
 
 
 
-    public static ArrayList<Location> importLocationData(String filename) throws FileNotFoundException{
+    public static ArrayList<Location> importEstateData(String filename) throws FileNotFoundException{
         ArrayList<Location> locations = new ArrayList<>();
 
         Scanner scanner = new Scanner(new File(filename));
