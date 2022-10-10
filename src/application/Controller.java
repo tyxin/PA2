@@ -124,7 +124,6 @@ public class Controller implements Initializable {
             }
 
 
-
         }catch (FileNotFoundException e){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("File Not Found");
@@ -233,9 +232,7 @@ public class Controller implements Initializable {
     private boolean rankChecker(ArrayList<Integer> rankList){
 
         for (int i = 1; i <= rankList.size(); i++) {
-            if (!rankList.contains(i)) {
-                return false;
-            }
+            if (!rankList.contains(i)) { return false; }
         }
 
         return true;
