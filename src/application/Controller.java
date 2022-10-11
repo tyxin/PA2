@@ -92,7 +92,6 @@ public class Controller implements Initializable {
 
     public void findOptimalITHButton(ActionEvent actionEvent) {
 
-
         try{
             model.initConnectivityFinder(estateTextField.getText(), new ArrayList<>(dataFacility));
             model.findBestITHLocations(ITHTextField.getText());
@@ -117,7 +116,7 @@ public class Controller implements Initializable {
                 for (int i = 0;i<sortedHubLocations.size();i++){
                     HubLocation tempHubLocation = sortedHubLocations.get(i);
                     dataITH.add(new ITHTable(i+1,tempHubLocation.getName(),
-                            tempHubLocation.getX_coord(),tempHubLocation.getY_coord()));
+                            tempHubLocation.getY_coord(),tempHubLocation.getX_coord()));
                 }
 
                 resultTableView.setItems(dataITH);
@@ -129,6 +128,16 @@ public class Controller implements Initializable {
             alert.setTitle("File Not Found");
             alert.setHeaderText("Invalid file directory!");
             alert.setContentText("Please input all files required correctly in format required.");
+            alert.showAndWait();
+        }catch(Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Unexpected Error Occured");
+            alert.setHeaderText("Please select files with correct formatting");
+            alert.setContentText("For facilities, the files must be formatted as:\n" +
+                    "name,latitude,longtitude,quality\n" +
+                    "For integrated hubs and estate locations, the files must be formatted as:\n" +
+                    "name,latitude,longtitude\n" +
+                    "Alternatively, please restart the application. Thank you!");
             alert.showAndWait();
         }
 
@@ -186,7 +195,6 @@ public class Controller implements Initializable {
         String facilityType = facilityTypeTextField.getText();
         String facilityFilePath = facilityDirectoryTextField.getText();
         String facilityRank = rankFacilityTextField.getText();
-        //TODO: refer to Y3 OOP II Lab 5.2
 
         int editIndex = facilityTableView.getSelectionModel().getSelectedIndex();
         if (editIndex==-1){
