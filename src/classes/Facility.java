@@ -1,6 +1,4 @@
-package Model;
-
-import java.util.Arrays;
+package classes;
 
 public class Facility {
     //this is our custom object to feed into node

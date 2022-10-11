@@ -1,4 +1,9 @@
-package Model;
+package classes.tests;
+
+import classes.CustomKDTreeNode;
+import classes.Facility;
+import classes.KDTree;
+import classes.Location;
 
 import java.io.File;
 import java.io.FileNotFoundException;

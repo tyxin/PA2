@@ -1,4 +1,4 @@
-package Model;
+package classes.tests;
 
 import java.io.*;
 import java.util.*;
