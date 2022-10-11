@@ -35,7 +35,7 @@ public class Controller implements Initializable {
     private TableColumn latitudeITHCol;
 
     @FXML
-    private TableColumn longtitudeITHCol;
+    private TableColumn longitudeITHCol;
 
     @FXML
     private TableColumn facilityTypeCol;
@@ -141,15 +141,15 @@ public class Controller implements Initializable {
             alert.setTitle("Unexpected Error Occured");
             alert.setHeaderText("Please select files with correct formatting");
             alert.setContentText("For facilities, the files must be formatted as:\n" +
-                    "name,latitude,longtitude,quality\n" +
+                    "name,latitude,longitude,quality\n" +
                     "For integrated hubs and estate locations, the files must be formatted as:\n" +
-                    "name,latitude,longtitude\n" +
+                    "name,latitude,longitude\n" +
                     "Alternatively, please restart the application. Thank you!");
             alert.showAndWait();
         }
 
         LocalDateTime end = LocalDateTime.now();
-        System.out.println("Time Taken to Execute: "+ Duration.between(start,end).getNano()+"ns");
+        System.out.println("Time Taken to Execute: "+ Duration.between(start,end).getSeconds()+" seconds");
 
     }
 
@@ -164,7 +164,7 @@ public class Controller implements Initializable {
         rankITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable, String>("ITHrank"));
         nameITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable, String>("ITHname"));
         latitudeITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable, String>("ITHlatitude"));
-        longtitudeITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable,String>("ITHlongtitude"));
+        longitudeITHCol.setCellValueFactory(new PropertyValueFactory<ITHTable,String>("ITHlongitude"));
         resultTableView.setItems(dataITH);
 
         facilityTableView.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) ->{

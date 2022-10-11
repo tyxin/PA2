@@ -41,12 +41,16 @@ public class CommandLineTool {
 
         String[] filePrefixes = {"healthcare", "prisch", "mrt", "busexchange", "secsch"};
 
-        String estatepath = "src/resources/estate_locations.csv";
-        String ithpath = "src/resources/ith_locations.csv";
+//        String estatepath = "src/resources/estate_locations.csv";
+//        String ithpath = "src/resources/ith_locations.csv";
+
+        String estatepath = System.getProperty("user.dir")+"/src/resources/estate_locations.csv";
+        String ithpath = System.getProperty("user.dir")+"/src/resources/ith_locations.csv";
 
         ArrayList<String> facilitiesPaths = new ArrayList<>();
         for (String p: filePrefixes) {
-            File f = new File("src/resources/updated/"+p+"_locations.csv");
+            File f = new File(System.getProperty("user.dir")+"/src/resources/updated/"+p+"_locations.csv");
+//            File f = new File("src/resources/updated/"+p+"_locations.csv");
             facilitiesPaths.add(f.getPath());
         }
 
