@@ -16,6 +16,10 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.time.DateTimeException;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import Model.HubLocation;
@@ -92,6 +96,8 @@ public class Controller implements Initializable {
 
     public void findOptimalITHButton(ActionEvent actionEvent) {
 
+        LocalDateTime start = LocalDateTime.now();
+
         try{
             model.initConnectivityFinder(estateTextField.getText(), new ArrayList<>(dataFacility));
             model.findBestITHLocations(ITHTextField.getText());
@@ -105,6 +111,7 @@ public class Controller implements Initializable {
 
             if (!rankChecker(rankArrayList)){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setResizable(true);
                 alert.setTitle("Invalid Rank");
                 alert.setHeaderText("Invalid Rank!");
                 alert.setContentText("Please input continuous rank from 1 to n, where n is the number of facilities");
@@ -131,6 +138,7 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }catch(Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setResizable(true);
             alert.setTitle("Unexpected Error Occured");
             alert.setHeaderText("Please select files with correct formatting");
             alert.setContentText("For facilities, the files must be formatted as:\n" +
@@ -140,6 +148,9 @@ public class Controller implements Initializable {
                     "Alternatively, please restart the application. Thank you!");
             alert.showAndWait();
         }
+
+        LocalDateTime end = LocalDateTime.now();
+        System.out.println("Time Taken to Execute: "+ Duration.between(start,end).getNano()+"ns");
 
     }
 
@@ -206,6 +217,7 @@ public class Controller implements Initializable {
         }else{
             if (!model.checkValidFacility(facilityType,facilityFilePath,facilityRank)){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setResizable(true);
                 alert.setTitle("Warning");
                 alert.setHeaderText("Fields are invalid!");
                 alert.setContentText("Please fill in required fields with valid inputs for successful edit");
