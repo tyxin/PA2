@@ -1,6 +1,5 @@
 package application;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +21,7 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import Model.HubLocation;
+import classes.HubLocation;
 
 public class Controller implements Initializable {
 

@@ -6,11 +6,9 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import Model.ConnectivityFinder;
-import Model.HubLocation;
+
+import classes.ConnectivityFinder;
+import classes.HubLocation;
 
 public class Model {
     private ConnectivityFinder connectivityFinder;
