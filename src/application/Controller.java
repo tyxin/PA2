@@ -150,7 +150,7 @@ public class Controller implements Initializable {
         }
 
         LocalDateTime end = LocalDateTime.now();
-        System.out.println("Time Taken to Execute: "+ Duration.between(start,end).getNano()+"ns");
+        System.out.println("Time Taken to Execute: "+ Duration.between(start,end).getSeconds()+" seconds");
 
     }
 
