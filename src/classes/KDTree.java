@@ -84,30 +84,38 @@ public class KDTree<T> {
         return root;
     }
 
-    private CustomKDTreeNode<T> minNode(CustomKDTreeNode<T> x, CustomKDTreeNode<T> y, CustomKDTreeNode<T> z, int d)
+    private CustomKDTreeNode<T> minMaxNode(CustomKDTreeNode<T> x, CustomKDTreeNode<T> y, CustomKDTreeNode<T> z, int d, boolean min)
     {
         CustomKDTreeNode<T> res = x;
-        if (y != null && y.getPoint()[d] < res.getPoint()[d])
-            res = y;
-        if (z != null && z.getPoint()[d] < res.getPoint()[d])
-            res = z;
+        if(min) { // looking for the minimum node
+            if (y != null && y.getPoint()[d] < res.getPoint()[d])
+                res = y;
+            if (z != null && z.getPoint()[d] < res.getPoint()[d])
+                res = z;
+        }
+        else { // looking for the maximum node
+            if (y != null && y.getPoint()[d] > res.getPoint()[d])
+                res = y;
+            if (z != null && z.getPoint()[d] > res.getPoint()[d])
+                res = z;
+        }
         return res;
     }
-    private CustomKDTreeNode<T> findMinRec(CustomKDTreeNode<T> root, int d, int depth) {
+    private CustomKDTreeNode<T> findMinMaxRec(CustomKDTreeNode<T> root, int d, int depth, boolean min) {
         if (root == null) return null;
         int cd = depth % dimensions;
         if (cd == d) {
             if (root.customNeighbours[0] == null)
                 return root;
-            return findMinRec(root.customNeighbours[0], d, depth+1);
+            return findMinMaxRec(root.customNeighbours[0], d, depth+1, min);
         }
-        return minNode(root,
-                findMinRec(root.customNeighbours[0], d, depth+1),
-                findMinRec(root.customNeighbours[1], d, depth+1), d);
+        return minMaxNode(root,
+                findMinMaxRec(root.customNeighbours[0], d, depth+1, min),
+                findMinMaxRec(root.customNeighbours[1], d, depth+1, min), d, min);
     }
-    private CustomKDTreeNode<T> findMin(CustomKDTreeNode<T> root, int d)
+    private CustomKDTreeNode<T> findMinMax(CustomKDTreeNode<T> root, int d, boolean min)
     {
-        return findMinRec(root, d, 0);
+        return findMinMaxRec(root, d, 0, min);
     }
     public void delete(double[] point) {root = deleteRec(root, point, 0);}
     private CustomKDTreeNode<T> deleteRec(CustomKDTreeNode<T> root, double[] point, int depth) {
@@ -116,13 +124,13 @@ public class KDTree<T> {
         if (Arrays.equals(root.getPoint(), point)) {
             if (root.customNeighbours[1] != null) {
                 // find p, the point with the minimum x value from the subtree rooted at the right child.
-                CustomKDTreeNode<T> min = findMin(root.customNeighbours[1], cd);
+                CustomKDTreeNode<T> rep = findMinMax(root.customNeighbours[1], cd, true);
                 // replace root with the min point
-                root.setPoint(min.getPoint());
+                root.setPoint(rep.getPoint());
                 // recursively remove p
-                root.customNeighbours[1] = deleteRec(root.customNeighbours[1], min.getPoint(), depth + 1);
+                root.customNeighbours[1] = deleteRec(root.customNeighbours[1], rep.getPoint(), depth + 1);
             } else if (root.customNeighbours[0] != null) {
-                CustomKDTreeNode<T> min = findMin(root.customNeighbours[0], cd);
+                CustomKDTreeNode<T> min = findMinMax(root.customNeighbours[0], cd, false);
                 root.setPoint(min.getPoint());
                 root.customNeighbours[0] = deleteRec(root.customNeighbours[0], min.getPoint(), depth + 1);
             } else {
