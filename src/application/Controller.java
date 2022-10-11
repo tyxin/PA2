@@ -104,7 +104,7 @@ public class Controller implements Initializable {
                 rankArrayList.add(tempRank);
             }
 
-            if (rankChecker(rankArrayList)){
+            if (!rankChecker(rankArrayList)){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Invalid Rank");
                 alert.setHeaderText("Invalid Rank!");

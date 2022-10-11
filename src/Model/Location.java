@@ -35,7 +35,7 @@ public class Location {
 
         for (int i=0;i<list.size();i++){
             Facility facility = list.get(i);
-            points+=Math.sqrt(facility.getRank())*facility.getFacilityQuality()/getDistanceTo(facility.getX_coord(), facility.getY_coord());
+            points+=facility.getFacilityQuality()/(getDistanceTo(facility.getX_coord(), facility.getY_coord())*facility.getRank());
         }
 
         points/=(double)list.size();
@@ -54,13 +54,13 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Model.Location{" +
+        return "Location{" +
                 "x_coord=" + x_coord +
                 ", y_coord=" + y_coord +
                 ", name='" + name + '\'' +
+                ", connectivity=" + connectivity +
                 '}';
     }
-
 
     public double getConnectivity() {
         return connectivity;

@@ -128,5 +128,9 @@ public class ConnectivityFinder {
         return locations;
     }
 
+    public void printEstates() {
+        estateArrayList.forEach(System.out::println);
+    }
+
 
 }

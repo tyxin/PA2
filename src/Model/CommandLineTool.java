@@ -12,7 +12,7 @@ public class CommandLineTool {
 
         String[] facilityTypes = {"Healthcare", "Primary Schools", "MRT", "Bus Exchange", "Secondary Schools"};
         ArrayList<String> facilityTypesList = new ArrayList<>(Arrays.asList(facilityTypes));
-        Integer[] rankings = {5,4,3,2,1};
+        Integer[] rankings = {5,1,3,2,4};
         ArrayList<Integer> rankingsList = new ArrayList<>(Arrays.asList(rankings));
 
         String[] filePrefixes = {"healthcare", "prisch", "mrt", "busexchange", "secsch"};
@@ -32,6 +32,9 @@ public class CommandLineTool {
                     new ConnectivityFinder(facilityTypesList, rankingsList, facilitiesPaths, estatepath);
             connectivityFinder.assignConnectivity();
             ArrayList<HubLocation> sortedHubs = connectivityFinder.sortHubLocations(ithpath);
+
+            connectivityFinder.printEstates();
+            System.out.println();
 
             sortedHubs.forEach(System.out::println);
 
