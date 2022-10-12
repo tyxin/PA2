@@ -11,10 +11,30 @@ Our project can be accessed either through `CommandLineTool.java` or the executa
 1. Navigate to `/src/classes/CommandLineTool.java`.
 2. Run the `main` program.
 3. Key in the numbers 1 to 5, separated by spaces, according to the instructions. This will decide how the facility types are prioritised.
-4. 
+4. Press enter again to get a list of recommendations! The output will be a list of integrated hub locations, with the optimal locations first.
 
 ### JAR Application (with GUI)
 ![](src/resources/userdoc.png)
+1. Add facilities (add as many as possible, samples are given under src/resources/updated (any file except ith_locations.csv, estate_locations.csv)
+* Type in a facility type
+* Click choose file and select a file facility csv
+* Input rank (importance; higher is better)
+* Click add!
+* To edit an entry, select the row in the table for its information to appear in the textfields. Then press edit to save changes.
+* You can also select a row to delete it.
+<br>
+2. Add possible integrated hubs
+* Click choose file and select possible integrated hub locations (sample provided as src/resources/updated/ith_locations.csv)
+<br><br>
+3. Add estate locations
+* Click choose file and select estate locations (sample provided as src/resources/updated/estate_locations.csv)
+<br><br>
+4. Press find optimal integrated hubs!
+* Result table will be shown on the right table view in descending order, where the most optimal integrated hub will be shown at the top
+<br><br>
+
+More information can be found in our report, and a video demonstration can be found here: https://drive.google.com/file/d/16OT_NPhc4tIig7zmb3HRHbOpJQ0Bzc2a/view?usp=sharing
+
 ## Contributing
 We are not accepting collaborations at this time. Feel free to fork this repository and make your own changes!
 
