@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="PA2:jar2" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf6a7282-bbf7-4b78-9728-684bb095f7bd" name="Changes" comment="rename Model to classes and enhance the java program" />
+    <list default="true" id="bf6a7282-bbf7-4b78-9728-684bb095f7bd" name="Changes" comment="help">
+      <change afterPath="$PROJECT_DIR$/src/resources/userdoc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PA2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PA2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PA2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PA2_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/CommandLineTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/CommandLineTool.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +64,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LLynus\IdeaProjects\PA2\src\resources" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.CommandLineTool">
     <configuration name="CommandLineTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -78,9 +103,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PA2.jar (1)" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/PA2_jar2/PA2.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PA2.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/PA2_jar/PA2.jar" />
+      <option name="PROGRAM_PARAMETERS" value="--add-modules javafx.controls,javafx.fxml" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.CommandLineTool" />
+      <item itemvalue="Application.placeHolderMain" />
+      <item itemvalue="JAR Application.PA2.jar" />
+      <item itemvalue="JAR Application.PA2.jar (1)" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.CommandLineTool" />
+        <item itemvalue="JAR Application.PA2.jar (1)" />
+        <item itemvalue="JAR Application.PA2.jar" />
         <item itemvalue="Application.placeHolderMain" />
       </list>
     </recent_temporary>
@@ -143,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665469206401</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="help">
+      <created>1665531612338</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665531612338</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +245,7 @@
     <MESSAGE value="small changes" />
     <MESSAGE value="add module-info.java" />
     <MESSAGE value="rename Model to classes and enhance the java program" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename Model to classes and enhance the java program" />
+    <MESSAGE value="help" />
+    <option name="LAST_COMMIT_MESSAGE" value="help" />
   </component>
 </project>

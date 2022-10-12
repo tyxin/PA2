@@ -9,12 +9,13 @@ import java.util.Scanner;
 public class CommandLineTool {
     public static void main(String[] args) {
 
-        String[] facilityTypes = {"Healthcare", "Primary Schools", "MRT", "Bus Exchange", "Secondary Schools"};
+        String[] facilityTypes = {"* Healthcare", "* Primary Schools", "* MRT Stations", "* Bus Exchange", "* Secondary Schools"};
         ArrayList<String> facilityTypesList = new ArrayList<>(Arrays.asList(facilityTypes));
 
         ArrayList<Integer> rankingsList = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please key in numbers 1 to 5 depending on how " +
+        System.out.println();
+        System.out.println("Please key in numbers 1 to 5 separated by spaces depending on how " +
                 "much you wish to prioritise each of the following facility types.");
         System.out.println("For example, 1 2 3 4 5");
         facilityTypesList.forEach(System.out::println);
@@ -25,8 +26,9 @@ public class CommandLineTool {
             try {
                 Arrays.asList(tokens).forEach(s -> rankingsList.add(Integer.parseInt(s)));
             } catch (NumberFormatException e) {
-                System.out.println("Number format exception!");
+                System.out.println("Number format exception! Please enter valid input.");
                 rankingsList.clear();
+                continue;
             }
 
             if (rankChecker(rankingsList)) {
@@ -61,10 +63,18 @@ public class CommandLineTool {
             connectivityFinder.assignConnectivity();
             ArrayList<HubLocation> sortedHubs = connectivityFinder.sortHubLocations(ithpath);
 
-            connectivityFinder.printEstates();
-            System.out.println();
+            // connectivityFinder.printEstates();
+            //System.out.println();
 
-            sortedHubs.forEach(System.out::println);
+            // sortedHubs.forEach(System.out::println);
+            //System.out.println();
+
+            System.out.println("We recommend building integrated transport hubs at the following locations: ");
+            int c=1;
+            for (HubLocation hub : sortedHubs.subList(0, 5)) {
+                System.out.println(c+": "+hub.getName()+ " (Connectivity improvement score: "+hub.getImprovement()+")");
+                c++;
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

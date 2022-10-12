@@ -9,11 +9,12 @@ Our project can be accessed either through `CommandLineTool.java` or the executa
 
 ### Command Line Utility
 1. Navigate to `/src/classes/CommandLineTool.java`.
-2. 
+2. Run the `main` program.
+3. Key in the numbers 1 to 5, separated by spaces, according to the instructions. This will decide how the facility types are prioritised.
+4. 
 
 ### JAR Application (with GUI)
-
-
+![](src/resources/userdoc.png)
 ## Contributing
 We are not accepting collaborations at this time. Feel free to fork this repository and make your own changes!
 
