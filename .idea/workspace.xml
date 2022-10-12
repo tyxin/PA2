@@ -9,16 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf6a7282-bbf7-4b78-9728-684bb095f7bd" name="Changes" comment="help">
-      <change afterPath="$PROJECT_DIR$/src/resources/userdoc.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PA2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PA2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/PA2_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/PA2_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="bf6a7282-bbf7-4b78-9728-684bb095f7bd" name="Changes" comment="Update of final version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PA2/application/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/CommandLineTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/CommandLineTool.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,27 +48,31 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2FxpzZVSlbMQhMxc4UqpkmHXuTC" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/Users/Yxin/Documents/javafx-sdk-19/lib/javafx.web.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\LLynus\IdeaProjects\PA2\src\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CommandLineTool">
+  <component name="RunManager" selected="Application.placeHolderMain">
     <configuration name="CommandLineTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="classes.CommandLineTool" />
       <module name="PA2" />
@@ -121,10 +117,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.placeHolderMain" />
         <item itemvalue="Application.CommandLineTool" />
         <item itemvalue="JAR Application.PA2.jar (1)" />
         <item itemvalue="JAR Application.PA2.jar" />
-        <item itemvalue="Application.placeHolderMain" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665531612338</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update of final version">
+      <created>1665555621212</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665555621212</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -246,6 +249,7 @@
     <MESSAGE value="add module-info.java" />
     <MESSAGE value="rename Model to classes and enhance the java program" />
     <MESSAGE value="help" />
-    <option name="LAST_COMMIT_MESSAGE" value="help" />
+    <MESSAGE value="Update of final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update of final version" />
   </component>
 </project>
